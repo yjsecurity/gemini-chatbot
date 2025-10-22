@@ -1,7 +1,7 @@
 import { convertToCoreMessages, Message, streamText } from "ai";
 import { z } from "zod";
 
-import { geminiImageModel } from "@/ai";
+import { geminiFlashModel } from "@/ai";
 import {
   generateReservationPrice,
   generateSampleFlightSearchResults,
@@ -33,7 +33,7 @@ export async function POST(request: Request) {
   );
 
   const result = await streamText({
-    model: geminiImageModel,
+    model: geminiFlashModel,
 system: 'You are a helpful and creative AI assistant.',
     messages: coreMessages,
     onFinish: async ({ responseMessages }) => {
