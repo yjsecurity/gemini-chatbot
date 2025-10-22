@@ -1,7 +1,7 @@
 import { convertToCoreMessages, Message, streamText } from "ai";
 import { z } from "zod";
 
-import { geminiProModel } from "@/ai";
+import { geminiImageModel } from "@/ai"; // <-- 우리가 만든 새 별명을 가져옵니다.
 import {
   generateReservationPrice,
   generateSampleFlightSearchResults,
@@ -33,7 +33,7 @@ export async function POST(request: Request) {
   );
 
   const result = await streamText({
-    model: geminiProModel,
+    model: geminiImageModel,
     system: `\n
         - you help users book flights!
         - keep your responses limited to a sentence.
